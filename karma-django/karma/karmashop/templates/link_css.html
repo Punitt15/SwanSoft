@@ -1,0 +1,56 @@
+{% load static %}
+
+	<script type="text/javascript">
+		{% if user.is_authenticated %}
+			var user = '{{request.user}}'
+		{% else %}
+			var user = 'AnonymousUser'
+		{% endif %}
+		function getCookie(name) {
+			let cookieValue = null;
+			if (document.cookie && document.cookie !== '') {
+				const cookies = document.cookie.split(';');
+				for (let i = 0; i < cookies.length; i++) {
+					const cookie = cookies[i].trim();
+					if (cookie.substring(0, name.length + 1) === (name + '=')) {
+						cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+						break;
+					}
+				}
+			}
+			return cookieValue;
+		}
+		const csrftoken = getCookie('csrftoken');
+	</script>
+
+
+<link rel="stylesheet" href="{%  static 'css/linearicons.css' %} ">
+	<link rel="stylesheet" href="{%  static 'css/owl.carousel.css' %} ">
+	<link rel="stylesheet" href="{%  static 'css/themify-icons.css' %} ">
+	<link rel="stylesheet" href="{%  static 'css/font-awesome.min.css' %} ">
+	<link rel="stylesheet" href="{%  static 'css/nice-select.css' %} ">
+	<link rel="stylesheet" href="{%  static 'css/nouislider.min.css' %} ">
+	<link rel="stylesheet" href="{%  static 'css/bootstrap.css' %} ">
+	<link rel="stylesheet" href="{%  static 'css/main.css' %} ">
+
+<style>
+    .add_to_bag_badge{
+         padding-left: 9px;
+          padding-right: 9px;
+          -webkit-border-radius: 9px;
+          -moz-border-radius: 9px;
+          border-radius: 9px;
+    }
+    .label-warning[href],
+    .badge-warning[href] {
+      background-color: #c67605;
+    }
+    #lblCartCount {
+        font-size: 12px;
+        background: #ff0000;
+        color: #fff;
+        padding: 0 5px 0px 5px;
+        vertical-align: top;
+        margin-left: 0px;
+    }
+</style>
